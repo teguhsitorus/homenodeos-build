@@ -341,8 +341,8 @@ if [[ -f /root/.not_logged_in_yet && -n $(tty) ]]; then
 
 	clear
 
-	echo -e "Welcome to \e[1m\e[97mARMBIAN\x1B[0m! \n"
-	echo -e "Documentation: \e[1m\e[92mhttps://docs.armbian.com\x1B[0m | Community: \e[1m\e[92mhttps://forum.armbian.com\x1B[0m\n"
+	echo -e "Welcome to \e[1m\e[97mAHomenode\x1B[0m! \n"
+	echo -e "Panel: \e[1m\e[92mhttps://homenode.my.id\x1B[0m | Status: \e[1m\e[92mhttps://status.homenode.my.id\x1B[0m\n"
 	GET_IP=$(bash /etc/update-motd.d/30-armbian-sysinfo | grep IP | sed "s/.*IP://" | sed 's/^[ \t]*//')
 	[[ -n "$GET_IP" ]] && echo -e "IP address: $GET_IP\n"
 
@@ -366,9 +366,6 @@ if [[ -f /root/.not_logged_in_yet && -n $(tty) ]]; then
 			if command -v cracklib-check >/dev/null 2>&1; then
 				result="$(cracklib-check <<<"$password")"
 				okay="$(awk -F': ' '{ print $2}' <<<"$result")"
-				if [[ "$okay" != "OK" ]]; then
-					echo -e "\n\e[0;31mWarning:\x1B[0m Weak password, $okay \b!"
-				fi
 			fi
 			(echo "$first_input";echo "$second_input";) | passwd root >/dev/null 2>&1
 			break
