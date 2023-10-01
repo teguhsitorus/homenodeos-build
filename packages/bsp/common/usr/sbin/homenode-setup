@@ -1,4 +1,4 @@
 #/bin/bash
 
 echo "Starting setup...";
-curl -fsSL https://pastebin.com/raw/tJ1vVFfP | sudo bash
+curl -fsSL https://pastebin.com/raw/itgPV6VJ | sudo bash
